@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import 'openzeppelin-solidity/contracts/token/ERC20/extensions/ERC20Burnable.sol';
 
-contract ALPHR is ERC20Burnable {
+contract ALPHRToken is ERC20Burnable {
 
     /**
      * @dev Mint 10mln tokens to deplyer

@@ -10,15 +10,9 @@ import 'openzeppelin-solidity/contracts/access/Ownable.sol';
 
 /**
  * @title TokenVesting
- * @dev A token holder contract that can release its token balance gradually like a
- * typical vesting scheme, with a cliff and vesting period.
+ * @dev A token holder contract that can release its token balance gradually
  */
 contract TokenVesting is Ownable {
-    // The vesting schedule is time-based (i.e. using block timestamps as opposed to e.g. block numbers), and is
-    // therefore sensitive to timestamp manipulation (which is something miners can do, to a certain degree). Therefore,
-    // it is recommended to avoid using short time durations (less than a minute). Typical vesting schemes, with a
-    // cliff period of a year and a duration of four years, are safe to use.
-    // solhint-disable not-rely-on-time
 
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
@@ -29,8 +23,9 @@ contract TokenVesting is Ownable {
     address private _beneficiary;
 
     // Durations and timestamps are expressed in UNIX time, the same units as block.timestamp.
-    uint256 private _cliff;
     uint256 private _start;
+    uint256 private _periodsAmount;
+    uint256 private _periodDuration;
     uint256 private _duration;
     uint256 private _released;
 
@@ -41,24 +36,20 @@ contract TokenVesting is Ownable {
      * beneficiary, gradually in a linear fashion until start + duration. By then all
      * of the balance will have vested.
      * @param beneficiary_ address of the beneficiary to whom vested tokens are transferred
-     * @param cliffDuration_ duration in seconds of the cliff in which tokens will begin to vest
      * @param start_ the time (as Unix time) at which point vesting starts
-     * @param duration_ duration in seconds of the period in which the tokens will vest
+     * @param periodDuration_ minimum time to passed to vest tokens
+     * @param periodsAmount_ number of vesting periods
      * @param alphr_ address of ALPHR token
      */
-    constructor (address beneficiary_, uint256 start_, uint256 cliffDuration_, uint256 duration_, IERC20 alphr_) {
+    constructor (address beneficiary_, uint256 start_, uint256 periodDuration_, uint256 periodsAmount_, IERC20 alphr_) {
         require(beneficiary_ != address(0), "TokenVesting: beneficiary is the zero address");
-        // solhint-disable-next-line max-line-length
-        require(cliffDuration_ <= duration_, "TokenVesting: cliff is longer than duration");
-        require(duration_ > 0, "TokenVesting: duration is 0");
-        // solhint-disable-next-line max-line-length
-        require(start_.add(duration_) > block.timestamp, "TokenVesting: final time is before current time");
-
+        
         _beneficiary = beneficiary_;
-        _duration = duration_;
-        _cliff = start_.add(cliffDuration_);
         _start = start_;
         _alphr = alphr_;
+        _periodDuration = periodDuration_;
+        _periodsAmount = periodsAmount_;
+        _duration = periodDuration_.mul(periodsAmount_);
     }
 
     /**
@@ -69,10 +60,17 @@ contract TokenVesting is Ownable {
     }
 
     /**
-     * @return the cliff time of the token vesting.
+     * @return the duration of 1 vesting period
      */
-    function cliff() public view returns (uint256) {
-        return _cliff;
+    function periodDuration() public view returns (uint256) {
+        return _periodDuration;
+    }
+
+    /**
+     * @return total amount of vesting periods
+     */
+    function periodsAmount() public view returns (uint256) {
+        return _periodsAmount;
     }
 
     /**
@@ -83,7 +81,7 @@ contract TokenVesting is Ownable {
     }
 
     /**
-     * @return the duration of the token vesting.
+     * @return the total duration of the token vesting.
      */
     function duration() public view returns (uint256) {
         return _duration;
@@ -97,10 +95,17 @@ contract TokenVesting is Ownable {
     }
 
     /**
-     * @return ALPHR address
+     * @return ALPHR tokens already released
      */
     function released() public view returns (uint) {
         return _released;
+    }
+
+    /**
+     * @return returns amount of ALPHR tokens available for release 
+     */
+    function releasableAmount() public view returns (uint) {
+        return _releasableAmount();
     }
 
     /**
@@ -132,12 +137,12 @@ contract TokenVesting is Ownable {
         uint256 currentBalance = _alphr.balanceOf(address(this));
         uint256 totalBalance = currentBalance.add(_released);
 
-        if (block.timestamp < _cliff) {
+        if (block.timestamp < _start) {
             return 0;
         } else if (block.timestamp >= _start.add(_duration)) {
             return totalBalance;
         } else {
-            return totalBalance.mul(block.timestamp.sub(_start)).div(_duration);
+            return totalBalance.mul(block.timestamp.sub(_start).div(_periodDuration)).div(_periodsAmount);
         }
     }
 }
