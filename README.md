@@ -30,11 +30,11 @@ Compiler used 0.8.0
 
 ### Private and seed
 
-1,000,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530). These tokens will be distributed by DAO Maker contract
+1,500,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530). These tokens will be distributed by DAO Maker contract
 
 ### Team
 
-1,916,667 ALPHR will be put in vesting contract for 24 month vesting; 0xa4a57223d07fe894440700fB14dc03A8D13455DE will be beneficiary for vesting  
+1,916,667 ALPHR will be put in vesting contract for 23 month vesting; 0xa4a57223d07fe894440700fB14dc03A8D13455DE will be beneficiary for vesting  
 83,333 ALPHR will be transferred to team multi sig at TGE (0xa4a57223d07fe894440700fB14dc03A8D13455DE).  
 
 ### Protocol Rewards
@@ -43,7 +43,7 @@ Compiler used 0.8.0
 
 ### Liquidity Providers (LP) Rewards
 
-750,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530)
+1,250,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530)
 250,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530) 
 
 ### Community development fund (CDF)
@@ -61,7 +61,7 @@ Compiler used 0.8.0
 
 - Team
 beneficiary_ - 0xa4a57223d07fe894440700fB14dc03A8D13455DE (team multi sig)
-start_ - 1621555200 (Fri May 21 2021 00:00:00 GMT+0000)
+start_ - 1624345200 (Tue June 22 2021 00:00:00 GMT+0000)
 periodDuration_ - 2592000 (30 days)
 periodsAmount_ - 23
 alphr_ - ALPHR token address
@@ -82,7 +82,7 @@ alphr_ - ALPHR token address
 
 - CDF
 beneficiary_ - Vault that will be deployed
-start_ - 1621555200 (Fri May 21 2021 00:00:00 GMT+0000)
+start_ - 1624345200 (Tue June 22 2021 00:00:00 GMT+0000)
 periodDuration_ - 2592000 (30 days)
 periodsAmount_ - 48
 alphr_ - ALPHR token address
