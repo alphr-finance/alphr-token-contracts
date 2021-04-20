@@ -86,3 +86,15 @@ start_ - 1621555200 (Fri May 21 2021 00:00:00 GMT+0000)
 periodDuration_ - 2592000 (30 days)
 periodsAmount_ - 48
 alphr_ - ALPHR token address
+
+
+### Run tests
+
+Install dependencies
+- yarn
+
+Build project
+- yarn build
+
+run tests
+- yarn test
