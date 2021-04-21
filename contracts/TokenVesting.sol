@@ -6,13 +6,12 @@ import 'openzeppelin-solidity/contracts/token/ERC20/IERC20.sol';
 import 'openzeppelin-solidity/contracts/token/ERC20/utils/SafeERC20.sol';
 import 'openzeppelin-solidity/contracts/utils/math/SafeMath.sol';
 import 'openzeppelin-solidity/contracts/utils/Address.sol';
-import 'openzeppelin-solidity/contracts/access/Ownable.sol';
 
 /**
  * @title TokenVesting
  * @dev A token holder contract that can release its token balance gradually
  */
-contract TokenVesting is Ownable {
+contract TokenVesting {
 
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
