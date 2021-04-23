@@ -1,10 +1,9 @@
 build
 node_modules
 truffle-config.js
-node_modules
-package-lock.json
 
 #Hardhat files
 cache
 artifacts
 typechain
+.env
