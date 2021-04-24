@@ -8,6 +8,6 @@ contract ALPHRToken is ERC20Burnable {
      * @dev Mint 10mln tokens to deplyer
      */
     constructor() ERC20("ALPHR", "ALPHR") {
-        _mint(_msgSender(), 10000000 * (10**uint256(decimals())));
+        _mint(_msgSender(), 10_000_000 * (10**uint256(decimals())));
     }
 }

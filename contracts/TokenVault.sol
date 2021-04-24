@@ -8,7 +8,6 @@ import 'openzeppelin-solidity/contracts/token/ERC20/utils/SafeERC20.sol';
 contract TokenVault is Ownable {
 
     using SafeERC20 for IERC20;
-    uint etherBalance; 
 
     constructor () {
     }
@@ -29,7 +28,8 @@ contract TokenVault is Ownable {
      * @param _amount amount of Ether to send in wei
      */
     function sendEther(address _to, uint _amount) public payable onlyOwner {
-        (bool sent, bytes memory data) = _to.call{value: _amount}("");
+        require(_to != address(0), "Incorrect address");
+        (bool sent, ) = _to.call{value: _amount}("");
         require(sent, "Failed to send Ether");
     }
 
