@@ -15,9 +15,9 @@
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.1.0-rc.0",
-    "hardhat-typechain": "^0.3.5",
-    "@truffle/hdwallet-provider": "^1.2.6",
+    "@truffle/hdwallet-provider": "1.2.2",
     "dotenv": "^8.2.0",
+    "hardhat-typechain": "^0.3.5",
     "openzeppelin-solidity": "4.0.0"
   },
   "devDependencies": {

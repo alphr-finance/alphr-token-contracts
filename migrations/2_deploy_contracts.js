@@ -13,7 +13,7 @@ module.exports = async function (deployer) {
   // Team Vesting
   await deployer.deploy(
     TeamVesting,
-    "0xa4a57223d07fe894440700fB14dc03A8D13455DE",
+    "0x793565878C643d507EC3365229Da5495c2F76A29",
     1624345200,
     2592000,
     23,
@@ -22,7 +22,7 @@ module.exports = async function (deployer) {
   // Protocol Rewards Vesting
   await deployer.deploy(
     ProtocolRewardsVesting,
-    "0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530",
+    "0x77E36C96166177337f54352837e7bBce6C437d44",
     1621468800,
     86400,
     1,
@@ -31,8 +31,8 @@ module.exports = async function (deployer) {
   // LP Rewards Vesting
   await deployer.deploy(
     LPRewardsVesting,
-    "0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530",
-    1621468800,
+    "0x77E36C96166177337f54352837e7bBce6C437d44",
+    1620370800,
     86400,
     1,
     ALPHRToken.address

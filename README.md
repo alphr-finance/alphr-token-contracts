@@ -30,21 +30,21 @@ Compiler used 0.8.0
 
 ### Private and seed
 
-1,500,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530). These tokens will be distributed by DAO Maker contract
+1,500,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x77E36C96166177337f54352837e7bBce6C437d44). These tokens will be distributed by DAO Maker contract
 
 ### Team
 
-1,916,667 ALPHR will be put in vesting contract for 23 month vesting; 0xa4a57223d07fe894440700fB14dc03A8D13455DE will be beneficiary for vesting  
-83,333 ALPHR will be transferred to team multi sig at TGE (0xa4a57223d07fe894440700fB14dc03A8D13455DE).  
+1,916,667 ALPHR will be put in vesting contract for 23 month vesting; 0x793565878C643d507EC3365229Da5495c2F76A29 will be beneficiary for vesting  
+83,333 ALPHR will be transferred to team multi sig at TGE (0x793565878C643d507EC3365229Da5495c2F76A29).  
 
 ### Protocol Rewards
 
-3,000,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530)
+3,000,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x77E36C96166177337f54352837e7bBce6C437d44)
 
 ### Liquidity Providers (LP) Rewards
 
-1,250,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530)
-250,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530) 
+1,250,000 ALPHR will be put in vesting for 1 month. Tokens will be vested to tech multi sig (0x77E36C96166177337f54352837e7bBce6C437d44)
+250,000 ALPHR will be sent to ALPHR tech multi sig at TGE (0x77E36C96166177337f54352837e7bBce6C437d44) 
 
 ### Community development fund (CDF)
 
@@ -60,22 +60,22 @@ Compiler used 0.8.0
 ### Vesting parameters
 
 - Team
-beneficiary_ - 0xa4a57223d07fe894440700fB14dc03A8D13455DE (team multi sig)
+beneficiary_ - 0x793565878C643d507EC3365229Da5495c2F76A29 (team multi sig)
 start_ - 1624345200 (Tue June 22 2021 00:00:00 GMT+0000)
 periodDuration_ - 2592000 (30 days)
 periodsAmount_ - 23
 alphr_ - ALPHR token address
 
 - Protocol Rewards
-beneficiary_ - 0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530 (tech multi sig)
+beneficiary_ - 0x77E36C96166177337f54352837e7bBce6C437d44 (tech multi sig)
 start_ - 1621468800 (Thu May 20 2021 00:00:00 GMT+0000)
 periodDuration_ - 86400 (1 day)
 periodsAmount_ - 1
 alphr_ - ALPHR token address
 
 - LP Rewards
-beneficiary_ - 0x9E631c73D7c08dfd103f572fEa45EfEe04D7f530 (tech multi sig)
-start_ - 1621468800 (Thu May 20 2021 00:00:00 GMT+0000)
+beneficiary_ - 0x77E36C96166177337f54352837e7bBce6C437d44 (tech multi sig)
+start_ - 1620370800 (Fri May 7 2021 00:00:00 GMT+0000)
 periodDuration_ - 86400 (1 day)
 periodsAmount_ - 1
 alphr_ - ALPHR token address
